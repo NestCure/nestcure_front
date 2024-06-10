@@ -23,13 +23,33 @@ class HealthKnowledgeTestScreen extends StatelessWidget {
         },
         themeData: Theme.of(context).copyWith(
           colorScheme: Theme.of(context).colorScheme.copyWith(
-            primary: Theme.of(context).primaryColor,
+            primary: Colors.cyan, // Color principal de la aplicación
             secondary: Colors.blue, // Fondo azul para las opciones seleccionadas
             onSecondary: Colors.white, // Texto blanco en las opciones seleccionadas
-            onSurface: Colors.black, // Color del texto al seleccionar
+            onSurface: Colors.black, // Color del texto en los botones de selección
           ),
           textTheme: Theme.of(context).textTheme.copyWith(
             bodyLarge: const TextStyle(color: Colors.black), // Color del texto por defecto
+          ),
+          outlinedButtonTheme: OutlinedButtonThemeData(
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.resolveWith<Color?>(
+                (Set<MaterialState> states) {
+                  if (states.contains(MaterialState.selected)) {
+                    return Colors.blue; // Fondo azul para las opciones seleccionadas
+                  }
+                  return null; // Fondo predeterminado para las opciones no seleccionadas
+                },
+              ),
+              foregroundColor: MaterialStateProperty.resolveWith<Color?>(
+                (Set<MaterialState> states) {
+                  if (states.contains(MaterialState.selected)) {
+                    return Colors.white; // Texto blanco en las opciones seleccionadas
+                  }
+                  return Colors.black; // Texto negro en las opciones no seleccionadas
+                },
+              ),
+            ),
           ),
         ),
       ),
@@ -77,6 +97,9 @@ class HealthKnowledgeTestScreen extends StatelessWidget {
     );
   }
 }
+
+
+
 
 
 
