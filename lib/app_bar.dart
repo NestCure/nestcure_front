@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nestcure/main.dart';
 import 'package:nestcure/profile.dart';
+import 'knowledge_tests.dart'; // Importa el archivo de los tests de conocimientos
 
 AppBar customAppBar(BuildContext context) {
   return AppBar(
@@ -82,6 +83,19 @@ class NavigationDrawerWidget extends StatelessWidget {
               Navigator.of(context).push(
                 MaterialPageRoute(builder: (context) {
                   return const ProfileWidget();
+                }),
+              );
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.quiz),
+            title: const Text('Knowledge Tests'),
+            onTap: () {
+              Navigator.pop(context);
+
+              Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) {
+                  return const KnowledgeTestsScreen();
                 }),
               );
             },

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nestcure/app_bar.dart';
+import 'knowledge_tests.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,7 +21,12 @@ class MyApp extends StatelessWidget {
         ),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Home'),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const MyHomePage(title: 'Home'),
+        '/perfil': (context) => const PerfilPage(), 
+        '/knowledge_tests': (context) => const KnowledgeTestsScreen(),
+      },
     );
   }
 }
@@ -73,3 +79,20 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+
+class PerfilPage extends StatelessWidget {
+  const PerfilPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Perfil'),
+      ),
+      body: const Center(
+        child: Text('Perfil Page'),
+      ),
+    );
+  }
+}
+
