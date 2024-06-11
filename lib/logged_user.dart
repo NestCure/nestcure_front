@@ -1,4 +1,4 @@
-import 'package:nestcure/login.dart';
+import 'usuari.dart';
 
 class LoggedUsuari {
   static final LoggedUsuari _instance = LoggedUsuari._internal();
@@ -11,6 +11,7 @@ class LoggedUsuari {
     esCuidadorPersonal: false,
     descripcio: '',
     personesDependents: [],
+    activitats: {},
   );
 
   LoggedUsuari._internal();
@@ -32,6 +33,7 @@ class LoggedUsuari {
       esCuidadorPersonal: false,
       descripcio: '',
       personesDependents: [],
+      activitats: {},
     );
   }
 
