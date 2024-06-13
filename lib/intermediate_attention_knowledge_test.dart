@@ -2,12 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:survey_kit/survey_kit.dart';
 
-class HealthKnowledgeTestScreen extends StatelessWidget {
+class IntermediateAttentionKnowledgeTestScreen extends StatelessWidget {
   final String testType;
   final String testLevel;
   final VoidCallback onCompleted;
 
-  const HealthKnowledgeTestScreen({
+  const IntermediateAttentionKnowledgeTestScreen({
     super.key,
     required this.testType,
     required this.testLevel,
@@ -19,7 +19,7 @@ class HealthKnowledgeTestScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.primary,
-        title: Text('Test de Coneixements Salut - $testLevel'),
+        title: Text('Test de Coneixements d\'Atenció - $testLevel'),
       ),
       body: SurveyKit(
         onResult: (SurveyResult result) {
@@ -142,117 +142,117 @@ class HealthKnowledgeTestScreen extends StatelessWidget {
       id: TaskIdentifier(),
       steps: [
         InstructionStep(
-          title: 'Benvingut al Test de Coneixements de Salut Bàsic',
+          title: 'Benvingut al Test de Coneixements d\'Atenció Intermedi',
           text: 'A continuació, realitzaràs una sèrie de preguntes per validar els teus coneixements.',
           buttonText: 'Començar',
         ),
         QuestionStep(
           title: 'Pregunta 1',
-          text: 'Què és la RCP?',
+          text: 'Quina és la funció principal d\'un metge de família?',
           answerFormat: const SingleChoiceAnswerFormat(
             textChoices: [
-              TextChoice(text: 'Reanimació CardioPulmonar', value: 'correct'),
-              TextChoice(text: 'Respiració Controlada Progressiva', value: 'wrong1'),
-              TextChoice(text: 'Reacción Cutánea Postural', value: 'wrong2'),
+              TextChoice(text: 'Proporcionar atenció integral i continuada', value: 'correct'),
+              TextChoice(text: 'Realitzar cirurgies', value: 'wrong1'),
+              TextChoice(text: 'Atendre només emergències', value: 'wrong2'),
             ],
           ),
         ),
         QuestionStep(
           title: 'Pregunta 2',
-          text: 'Quin és el símbol de l\'emergència mèdica?',
+          text: 'Què és una consulta multidisciplinària?',
           answerFormat: const SingleChoiceAnswerFormat(
             textChoices: [
-              TextChoice(text: 'Creu Vermella', value: 'correct'),
-              TextChoice(text: 'Estrella de David', value: 'wrong1'),
-              TextChoice(text: 'Caduceu', value: 'wrong2'),
+              TextChoice(text: 'Atenció coordinada per diversos especialistes', value: 'correct'),
+              TextChoice(text: 'Consulta telefònica amb el metge', value: 'wrong1'),
+              TextChoice(text: 'Consulta per internet', value: 'wrong2'),
             ],
           ),
         ),
         QuestionStep(
           title: 'Pregunta 3',
-          text: 'Quin és el número d\'emergències?',
+          text: 'Què és la telemedicina?',
           answerFormat: const SingleChoiceAnswerFormat(
             textChoices: [
-              TextChoice(text: '112', value: 'correct'),
-              TextChoice(text: '911', value: 'wrong1'),
-              TextChoice(text: '123', value: 'wrong2'),
+              TextChoice(text: 'Proporcionar serveis mèdics a distància', value: 'correct'),
+              TextChoice(text: 'Atenció mèdica a la clínica', value: 'wrong1'),
+              TextChoice(text: 'Administrar medicaments', value: 'wrong2'),
             ],
           ),
         ),
         QuestionStep(
           title: 'Pregunta 4',
-          text: 'Què s\'ha de fer primer en cas d\'una ferida sagnant?',
+          text: 'Quina és la diferència entre atenció primària i atenció secundària?',
           answerFormat: const SingleChoiceAnswerFormat(
             textChoices: [
-              TextChoice(text: 'Aplicar pressió', value: 'correct'),
-              TextChoice(text: 'Posar aigua', value: 'wrong1'),
-              TextChoice(text: 'Col·locar un apòsit', value: 'wrong2'),
+              TextChoice(text: 'L\'atenció primària és la primera línia, l\'atenció secundària implica especialistes', value: 'correct'),
+              TextChoice(text: 'L\'atenció primària tracta malalties greus, l\'atenció secundària tracta malalties lleus', value: 'wrong1'),
+              TextChoice(text: 'L\'atenció primària és a l\'hospital, l\'atenció secundària és a casa', value: 'wrong2'),
             ],
           ),
         ),
         QuestionStep(
           title: 'Pregunta 5',
-          text: 'Com es pot prevenir un refredat comú?',
+          text: 'Què és una unitat d\'atenció domiciliària?',
           answerFormat: const SingleChoiceAnswerFormat(
             textChoices: [
-              TextChoice(text: 'Rentant-se les mans', value: 'correct'),
-              TextChoice(text: 'Bevent molta aigua', value: 'wrong1'),
-              TextChoice(text: 'Prenent vitamines', value: 'wrong2'),
+              TextChoice(text: 'Equip mèdic que visita pacients a casa', value: 'correct'),
+              TextChoice(text: 'Servei d\'emergència', value: 'wrong1'),
+              TextChoice(text: 'Departament hospitalari', value: 'wrong2'),
             ],
           ),
         ),
         QuestionStep(
           title: 'Pregunta 6',
-          text: 'Què significa AED?',
+          text: 'Què significa EHR?',
           answerFormat: const SingleChoiceAnswerFormat(
             textChoices: [
-              TextChoice(text: 'Desfibril·lador Extern Automàtic', value: 'correct'),
-              TextChoice(text: 'Dispositiu Electrònic d\'Ajuda', value: 'wrong1'),
-              TextChoice(text: 'Equip de Emergències Avançades', value: 'wrong2'),
+              TextChoice(text: 'Electronic Health Record (Historial de Salut Electrònic)', value: 'correct'),
+              TextChoice(text: 'Emergency Health Response (Resposta Sanitària d\'Emergència)', value: 'wrong1'),
+              TextChoice(text: 'Everyday Health Routine (Rutina de Salut Diària)', value: 'wrong2'),
             ],
           ),
         ),
         QuestionStep(
           title: 'Pregunta 7',
-          text: 'Què s\'ha de fer en cas d\'una cremada menor?',
+          text: 'Què és la gestió de casos?',
           answerFormat: const SingleChoiceAnswerFormat(
             textChoices: [
-              TextChoice(text: 'Aplicar aigua freda', value: 'correct'),
-              TextChoice(text: 'Posar oli', value: 'wrong1'),
-              TextChoice(text: 'Cobrir amb una manta', value: 'wrong2'),
+              TextChoice(text: 'Coordinació de serveis per pacients amb necessitats complexes', value: 'correct'),
+              TextChoice(text: 'Registrar informació mèdica', value: 'wrong1'),
+              TextChoice(text: 'Realitzar proves diagnòstiques', value: 'wrong2'),
             ],
           ),
         ),
         QuestionStep(
           title: 'Pregunta 8',
-          text: 'Quina és la causa més comuna d\'un atac cardíac?',
+          text: 'Què és una consulta preventiva?',
           answerFormat: const SingleChoiceAnswerFormat(
             textChoices: [
-              TextChoice(text: 'Bloqueig de les artèries coronàries', value: 'correct'),
-              TextChoice(text: 'Febre alta', value: 'wrong1'),
-              TextChoice(text: 'Infecció bacteriana', value: 'wrong2'),
+              TextChoice(text: 'Visita per prevenir malalties', value: 'correct'),
+              TextChoice(text: 'Visita per tractar malalties', value: 'wrong1'),
+              TextChoice(text: 'Visita d\'emergència', value: 'wrong2'),
             ],
           ),
         ),
         QuestionStep(
           title: 'Pregunta 9',
-          text: 'Quin és el millor lloc per comprovar el pols en un adult conscient?',
+          text: 'Què és un triatge?',
           answerFormat: const SingleChoiceAnswerFormat(
             textChoices: [
-              TextChoice(text: 'Canell', value: 'correct'),
-              TextChoice(text: 'Coll', value: 'wrong1'),
-              TextChoice(text: 'Peu', value: 'wrong2'),
+              TextChoice(text: 'Classificació dels pacients segons la gravetat', value: 'correct'),
+              TextChoice(text: 'Prova de laboratori', value: 'wrong1'),
+              TextChoice(text: 'Consulta amb el farmacèutic', value: 'wrong2'),
             ],
           ),
         ),
         QuestionStep(
           title: 'Pregunta 10',
-          text: 'Quina és la temperatura corporal normal en un ésser humà?',
+          text: 'Què és l\'educació per a la salut?',
           answerFormat: const SingleChoiceAnswerFormat(
             textChoices: [
-              TextChoice(text: '36.5-37.5 °C', value: 'correct'),
-              TextChoice(text: '35-36 °C', value: 'wrong1'),
-              TextChoice(text: '38-39 °C', value: 'wrong2'),
+              TextChoice(text: 'Programes per ensenyar hàbits saludables', value: 'correct'),
+              TextChoice(text: 'Entrenament per a professionals mèdics', value: 'wrong1'),
+              TextChoice(text: 'Cursos de medicina', value: 'wrong2'),
             ],
           ),
         ),
@@ -266,20 +266,3 @@ class HealthKnowledgeTestScreen extends StatelessWidget {
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -2,12 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:survey_kit/survey_kit.dart';
 
-class HealthKnowledgeTestScreen extends StatelessWidget {
+class AdvancedPracticalSkillsTestScreen extends StatelessWidget {
   final String testType;
   final String testLevel;
   final VoidCallback onCompleted;
 
-  const HealthKnowledgeTestScreen({
+  const AdvancedPracticalSkillsTestScreen({
     super.key,
     required this.testType,
     required this.testLevel,
@@ -19,11 +19,10 @@ class HealthKnowledgeTestScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.primary,
-        title: Text('Test de Coneixements Salut - $testLevel'),
+        title: Text('Test de Habilitats Pràctiques - $testLevel'),
       ),
       body: SurveyKit(
         onResult: (SurveyResult result) {
-          // Procesa el resultado del test
           onCompleted();
           Navigator.of(context).pop();
         },
@@ -142,117 +141,117 @@ class HealthKnowledgeTestScreen extends StatelessWidget {
       id: TaskIdentifier(),
       steps: [
         InstructionStep(
-          title: 'Benvingut al Test de Coneixements de Salut Bàsic',
+          title: 'Benvingut al Test de Habilitats Pràctiques Avançat',
           text: 'A continuació, realitzaràs una sèrie de preguntes per validar els teus coneixements.',
           buttonText: 'Començar',
         ),
-        QuestionStep(
+       QuestionStep(
           title: 'Pregunta 1',
-          text: 'Què és la RCP?',
+          text: '¿Cuáles son las diferencias principales entre la RCP básica y la avanzada?',
           answerFormat: const SingleChoiceAnswerFormat(
             textChoices: [
-              TextChoice(text: 'Reanimació CardioPulmonar', value: 'correct'),
-              TextChoice(text: 'Respiració Controlada Progressiva', value: 'wrong1'),
-              TextChoice(text: 'Reacción Cutánea Postural', value: 'wrong2'),
+              TextChoice(text: 'La RCP avanzada incluye el uso de desfibriladores automáticos externos.', value: 'correct'),
+              TextChoice(text: 'La RCP avanzada requiere el uso de medicamentos intravenosos.', value: 'wrong1'),
+              TextChoice(text: 'La RCP básica se enfoca solo en la RCP externa, mientras que la avanzada incluye la intubación y el uso de drogas.', value: 'wrong2'),
             ],
           ),
         ),
         QuestionStep(
           title: 'Pregunta 2',
-          text: 'Quin és el símbol de l\'emergència mèdica?',
+          text: '¿Qué es la ventilación con bolsa-mascarilla y cuándo se utiliza en la RCP avanzada?',
           answerFormat: const SingleChoiceAnswerFormat(
             textChoices: [
-              TextChoice(text: 'Creu Vermella', value: 'correct'),
-              TextChoice(text: 'Estrella de David', value: 'wrong1'),
-              TextChoice(text: 'Caduceu', value: 'wrong2'),
+              TextChoice(text: 'Es una técnica para proporcionar ventilaciones controladas a través de una máscara y se utiliza cuando se necesita una ventilación más precisa.', value: 'correct'),
+              TextChoice(text: 'Es una técnica para administrar oxígeno puro a través de una bolsa y se utiliza solo en hospitales.', value: 'wrong1'),
+              TextChoice(text: 'Es una técnica para estabilizar la mandíbula durante la RCP y se utiliza en situaciones de trauma grave.', value: 'wrong2'),
             ],
           ),
         ),
         QuestionStep(
           title: 'Pregunta 3',
-          text: 'Quin és el número d\'emergències?',
+          text: '¿Cuál es el objetivo principal de la desfibrilación durante la RCP avanzada?',
           answerFormat: const SingleChoiceAnswerFormat(
             textChoices: [
-              TextChoice(text: '112', value: 'correct'),
-              TextChoice(text: '911', value: 'wrong1'),
-              TextChoice(text: '123', value: 'wrong2'),
+              TextChoice(text: 'Restaurar el ritmo cardíaco normal mediante la aplicación de corriente eléctrica.', value: 'correct'),
+              TextChoice(text: 'Estimular el sistema nervioso central para mejorar la circulación sanguínea.', value: 'wrong1'),
+              TextChoice(text: 'Mejorar la oxigenación pulmonar utilizando dispositivos avanzados.', value: 'wrong2'),
             ],
           ),
         ),
         QuestionStep(
           title: 'Pregunta 4',
-          text: 'Què s\'ha de fer primer en cas d\'una ferida sagnant?',
+          text: '¿Qué se debe hacer si una persona en paro cardíaco muestra signos de respuesta a la desfibrilación inicial?',
           answerFormat: const SingleChoiceAnswerFormat(
             textChoices: [
-              TextChoice(text: 'Aplicar pressió', value: 'correct'),
-              TextChoice(text: 'Posar aigua', value: 'wrong1'),
-              TextChoice(text: 'Col·locar un apòsit', value: 'wrong2'),
+              TextChoice(text: 'Continuar con la RCP y administrar otra descarga si es necesario.', value: 'correct'),
+              TextChoice(text: 'Detener la RCP y observar si la persona se recupera espontáneamente.', value: 'wrong1'),
+              TextChoice(text: 'Administrar un medicamento antiarrítmico por vía intravenosa.', value: 'wrong2'),
             ],
           ),
         ),
         QuestionStep(
           title: 'Pregunta 5',
-          text: 'Com es pot prevenir un refredat comú?',
+          text: '¿Cuándo se considera la intubación traqueal en la gestión avanzada de la vía aérea durante la RCP?',
           answerFormat: const SingleChoiceAnswerFormat(
             textChoices: [
-              TextChoice(text: 'Rentant-se les mans', value: 'correct'),
-              TextChoice(text: 'Bevent molta aigua', value: 'wrong1'),
-              TextChoice(text: 'Prenent vitamines', value: 'wrong2'),
+              TextChoice(text: 'Cuando la ventilación con bolsa-mascarilla no es adecuada o posible.', value: 'correct'),
+              TextChoice(text: 'Cuando se sospecha de un trauma en la columna cervical.', value: 'wrong1'),
+              TextChoice(text: 'Cuando se necesita una evaluación más detallada de las vías respiratorias.', value: 'wrong2'),
             ],
           ),
         ),
         QuestionStep(
           title: 'Pregunta 6',
-          text: 'Què significa AED?',
+          text: '¿Qué es el monitoreo del CO2 espirado y cómo ayuda en la RCP avanzada?',
           answerFormat: const SingleChoiceAnswerFormat(
             textChoices: [
-              TextChoice(text: 'Desfibril·lador Extern Automàtic', value: 'correct'),
-              TextChoice(text: 'Dispositiu Electrònic d\'Ajuda', value: 'wrong1'),
-              TextChoice(text: 'Equip de Emergències Avançades', value: 'wrong2'),
+              TextChoice(text: 'Es la medición de dióxido de carbono exhalado que indica la efectividad de las compresiones y ventilaciones.', value: 'correct'),
+              TextChoice(text: 'Es una técnica para evaluar la función pulmonar antes y después de la RCP.', value: 'wrong1'),
+              TextChoice(text: 'Es una forma de monitorear la saturación de oxígeno durante la RCP.', value: 'wrong2'),
             ],
           ),
         ),
         QuestionStep(
           title: 'Pregunta 7',
-          text: 'Què s\'ha de fer en cas d\'una cremada menor?',
+          text: '¿Cuál es el papel de los medicamentos durante la RCP avanzada?',
           answerFormat: const SingleChoiceAnswerFormat(
             textChoices: [
-              TextChoice(text: 'Aplicar aigua freda', value: 'correct'),
-              TextChoice(text: 'Posar oli', value: 'wrong1'),
-              TextChoice(text: 'Cobrir amb una manta', value: 'wrong2'),
+              TextChoice(text: 'Estabilizar el ritmo cardíaco y mejorar la contracción del corazón.', value: 'correct'),
+              TextChoice(text: 'Administrar analgésicos para aliviar el dolor durante la RCP.', value: 'wrong1'),
+              TextChoice(text: 'Redirigir el flujo sanguíneo hacia los órganos vitales.', value: 'wrong2'),
             ],
           ),
         ),
         QuestionStep(
           title: 'Pregunta 8',
-          text: 'Quina és la causa més comuna d\'un atac cardíac?',
+          text: '¿Qué se debe hacer después de administrar una descarga eléctrica exitosa durante la RCP avanzada?',
           answerFormat: const SingleChoiceAnswerFormat(
             textChoices: [
-              TextChoice(text: 'Bloqueig de les artèries coronàries', value: 'correct'),
-              TextChoice(text: 'Febre alta', value: 'wrong1'),
-              TextChoice(text: 'Infecció bacteriana', value: 'wrong2'),
+              TextChoice(text: 'Reanudar inmediatamente las compresiones torácicas.', value: 'correct'),
+              TextChoice(text: 'Administrar una dosis adicional de medicamento antiarrítmico.', value: 'wrong1'),
+              TextChoice(text: 'Observar la respuesta del paciente durante al menos 5 minutos antes de continuar.', value: 'wrong2'),
             ],
           ),
         ),
         QuestionStep(
           title: 'Pregunta 9',
-          text: 'Quin és el millor lloc per comprovar el pols en un adult conscient?',
+          text: '¿Cuándo se considera la terapia de perfusión cerebral dirigida durante la RCP avanzada?',
           answerFormat: const SingleChoiceAnswerFormat(
             textChoices: [
-              TextChoice(text: 'Canell', value: 'correct'),
-              TextChoice(text: 'Coll', value: 'wrong1'),
-              TextChoice(text: 'Peu', value: 'wrong2'),
+              TextChoice(text: 'Cuando es necesario optimizar la presión y el flujo sanguíneo cerebral para mejorar los resultados neurológicos.', value: 'correct'),
+              TextChoice(text: 'Cuando se detecta un infarto agudo de miocardio durante la RCP.', value: 'wrong1'),
+              TextChoice(text: 'Cuando se requiere una intervención quirúrgica inmediata para corregir una obstrucción en las arterias coronarias.', value: 'wrong2'),
             ],
           ),
         ),
         QuestionStep(
           title: 'Pregunta 10',
-          text: 'Quina és la temperatura corporal normal en un ésser humà?',
+          text: '¿Qué medidas se deben tomar para minimizar la interrupción de las compresiones torácicas durante la RCP avanzada?',
           answerFormat: const SingleChoiceAnswerFormat(
             textChoices: [
-              TextChoice(text: '36.5-37.5 °C', value: 'correct'),
-              TextChoice(text: '35-36 °C', value: 'wrong1'),
-              TextChoice(text: '38-39 °C', value: 'wrong2'),
+              TextChoice(text: 'Optimizar la coordinación del equipo para cambios rápidos y eficientes en las tareas.', value: 'correct'),
+              TextChoice(text: 'Reducir la frecuencia de las evaluaciones de ritmo y pulso para enfocarse en la calidad de las compresiones.', value: 'wrong1'),
+              TextChoice(text: 'Aumentar la frecuencia de rotación del personal para mantener la energía y la eficiencia durante la RCP.', value: 'wrong2'),
             ],
           ),
         ),
@@ -266,20 +265,3 @@ class HealthKnowledgeTestScreen extends StatelessWidget {
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

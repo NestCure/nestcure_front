@@ -2,12 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:survey_kit/survey_kit.dart';
 
-class HealthKnowledgeTestScreen extends StatelessWidget {
+class BasicPracticalSkillsTestScreen extends StatelessWidget {
   final String testType;
   final String testLevel;
   final VoidCallback onCompleted;
 
-  const HealthKnowledgeTestScreen({
+  const BasicPracticalSkillsTestScreen({
     super.key,
     required this.testType,
     required this.testLevel,
@@ -19,11 +19,10 @@ class HealthKnowledgeTestScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.primary,
-        title: Text('Test de Coneixements Salut - $testLevel'),
+        title: Text('Test de Habilitats Pràctiques - $testLevel'),
       ),
       body: SurveyKit(
         onResult: (SurveyResult result) {
-          // Procesa el resultado del test
           onCompleted();
           Navigator.of(context).pop();
         },
@@ -142,117 +141,117 @@ class HealthKnowledgeTestScreen extends StatelessWidget {
       id: TaskIdentifier(),
       steps: [
         InstructionStep(
-          title: 'Benvingut al Test de Coneixements de Salut Bàsic',
+          title: 'Benvingut al Test de Habilitats Pràctiques Bàsic',
           text: 'A continuació, realitzaràs una sèrie de preguntes per validar els teus coneixements.',
           buttonText: 'Començar',
         ),
         QuestionStep(
           title: 'Pregunta 1',
-          text: 'Què és la RCP?',
+          text: '¿Qué acción debes tomar primero en caso de presenciar a alguien desmayado en el suelo?',
           answerFormat: const SingleChoiceAnswerFormat(
             textChoices: [
-              TextChoice(text: 'Reanimació CardioPulmonar', value: 'correct'),
-              TextChoice(text: 'Respiració Controlada Progressiva', value: 'wrong1'),
-              TextChoice(text: 'Reacción Cutánea Postural', value: 'wrong2'),
+              TextChoice(text: 'Llamar al número de emergencias.', value: 'correct'),
+              TextChoice(text: 'Sacudir a la persona para despertarla.', value: 'wrong1'),
+              TextChoice(text: 'Verificar la respiración y la conciencia.', value: 'wrong2'),
             ],
           ),
         ),
         QuestionStep(
           title: 'Pregunta 2',
-          text: 'Quin és el símbol de l\'emergència mèdica?',
+          text: '¿Cuál es la posición adecuada para colocar a una persona inconsciente que respira normalmente?',
           answerFormat: const SingleChoiceAnswerFormat(
             textChoices: [
-              TextChoice(text: 'Creu Vermella', value: 'correct'),
-              TextChoice(text: 'Estrella de David', value: 'wrong1'),
-              TextChoice(text: 'Caduceu', value: 'wrong2'),
+              TextChoice(text: 'De lado, en posición de recuperación.', value: 'correct'),
+              TextChoice(text: 'Sentada con la cabeza inclinada hacia atrás.', value: 'wrong1'),
+              TextChoice(text: 'Boca arriba con las piernas levantadas.', value: 'wrong2'),
             ],
           ),
         ),
         QuestionStep(
           title: 'Pregunta 3',
-          text: 'Quin és el número d\'emergències?',
+          text: '¿Qué se debe hacer después de confirmar que una persona no responde y no respira normalmente?',
           answerFormat: const SingleChoiceAnswerFormat(
             textChoices: [
-              TextChoice(text: '112', value: 'correct'),
-              TextChoice(text: '911', value: 'wrong1'),
-              TextChoice(text: '123', value: 'wrong2'),
+              TextChoice(text: 'Realizar compresiones torácicas.', value: 'correct'),
+              TextChoice(text: 'Administrar agua para ayudar en la respiración.', value: 'wrong1'),
+              TextChoice(text: 'Darle palmadas en la espalda.', value: 'wrong2'),
             ],
           ),
         ),
         QuestionStep(
           title: 'Pregunta 4',
-          text: 'Què s\'ha de fer primer en cas d\'una ferida sagnant?',
+          text: '¿Cuál es el ritmo recomendado para las compresiones torácicas durante la RCP?',
           answerFormat: const SingleChoiceAnswerFormat(
             textChoices: [
-              TextChoice(text: 'Aplicar pressió', value: 'correct'),
-              TextChoice(text: 'Posar aigua', value: 'wrong1'),
-              TextChoice(text: 'Col·locar un apòsit', value: 'wrong2'),
+              TextChoice(text: '100-120 compresiones por minuto', value: 'correct'),
+              TextChoice(text: '80-100 compresiones por minuto', value: 'wrong1'),
+              TextChoice(text: '120-140 compresiones por minuto', value: 'wrong2'),
             ],
           ),
         ),
         QuestionStep(
           title: 'Pregunta 5',
-          text: 'Com es pot prevenir un refredat comú?',
+          text: '¿Cuál es la ubicación correcta para realizar las compresiones torácicas en un adulto?',
           answerFormat: const SingleChoiceAnswerFormat(
             textChoices: [
-              TextChoice(text: 'Rentant-se les mans', value: 'correct'),
-              TextChoice(text: 'Bevent molta aigua', value: 'wrong1'),
-              TextChoice(text: 'Prenent vitamines', value: 'wrong2'),
+              TextChoice(text: 'En el centro del pecho, entre los pezones.', value: 'correct'),
+              TextChoice(text: 'En la parte inferior del esternón.', value: 'wrong1'),
+              TextChoice(text: 'En la parte superior del abdomen.', value: 'wrong2'),
             ],
           ),
         ),
         QuestionStep(
           title: 'Pregunta 6',
-          text: 'Què significa AED?',
+          text: '¿Cuál es la profundidad adecuada para las compresiones torácicas en un adulto?',
           answerFormat: const SingleChoiceAnswerFormat(
             textChoices: [
-              TextChoice(text: 'Desfibril·lador Extern Automàtic', value: 'correct'),
-              TextChoice(text: 'Dispositiu Electrònic d\'Ajuda', value: 'wrong1'),
-              TextChoice(text: 'Equip de Emergències Avançades', value: 'wrong2'),
+              TextChoice(text: 'Al menos 5 centímetros.', value: 'correct'),
+              TextChoice(text: 'Al menos 2 centímetros.', value: 'wrong1'),
+              TextChoice(text: 'Al menos 10 centímetros.', value: 'wrong2'),
             ],
           ),
         ),
         QuestionStep(
           title: 'Pregunta 7',
-          text: 'Què s\'ha de fer en cas d\'una cremada menor?',
+          text: '¿Cuál es el siguiente paso después de asegurar que las vías respiratorias están despejadas?',
           answerFormat: const SingleChoiceAnswerFormat(
             textChoices: [
-              TextChoice(text: 'Aplicar aigua freda', value: 'correct'),
-              TextChoice(text: 'Posar oli', value: 'wrong1'),
-              TextChoice(text: 'Cobrir amb una manta', value: 'wrong2'),
+              TextChoice(text: 'Iniciar la respiración artificial.', value: 'correct'),
+              TextChoice(text: 'Evaluar el pulso.', value: 'wrong1'),
+              TextChoice(text: 'Comenzar las compresiones torácicas.', value: 'wrong2'),
             ],
           ),
         ),
         QuestionStep(
           title: 'Pregunta 8',
-          text: 'Quina és la causa més comuna d\'un atac cardíac?',
+          text: '¿Cuál es la secuencia correcta para administrar RCP básica a un adulto?',
           answerFormat: const SingleChoiceAnswerFormat(
             textChoices: [
-              TextChoice(text: 'Bloqueig de les artèries coronàries', value: 'correct'),
-              TextChoice(text: 'Febre alta', value: 'wrong1'),
-              TextChoice(text: 'Infecció bacteriana', value: 'wrong2'),
+              TextChoice(text: 'Compresiones torácicas -> Apertura de las vías aéreas -> Ventilaciones.', value: 'correct'),
+              TextChoice(text: 'Ventilaciones -> Compresiones torácicas -> Apertura de las vías aéreas.', value: 'wrong1'),
+              TextChoice(text: 'Apertura de las vías aéreas -> Compresiones torácicas -> Ventilaciones.', value: 'wrong2'),
             ],
           ),
         ),
         QuestionStep(
           title: 'Pregunta 9',
-          text: 'Quin és el millor lloc per comprovar el pols en un adult conscient?',
+          text: '¿Cuántas ventilaciones deben administrarse por cada serie de compresiones torácicas en la RCP básica?',
           answerFormat: const SingleChoiceAnswerFormat(
             textChoices: [
-              TextChoice(text: 'Canell', value: 'correct'),
-              TextChoice(text: 'Coll', value: 'wrong1'),
-              TextChoice(text: 'Peu', value: 'wrong2'),
+              TextChoice(text: '2 ventilaciones.', value: 'correct'),
+              TextChoice(text: '5 ventilaciones.', value: 'wrong1'),
+              TextChoice(text: '1 ventilación.', value: 'wrong2'),
             ],
           ),
         ),
         QuestionStep(
           title: 'Pregunta 10',
-          text: 'Quina és la temperatura corporal normal en un ésser humà?',
+          text: '¿Cuál es la posición adecuada para realizar las compresiones torácicas en un bebé?',
           answerFormat: const SingleChoiceAnswerFormat(
             textChoices: [
-              TextChoice(text: '36.5-37.5 °C', value: 'correct'),
-              TextChoice(text: '35-36 °C', value: 'wrong1'),
-              TextChoice(text: '38-39 °C', value: 'wrong2'),
+              TextChoice(text: 'En el centro del pecho, entre los pezones.', value: 'correct'),
+              TextChoice(text: 'En el estómago, justo debajo del ombligo.', value: 'wrong1'),
+              TextChoice(text: 'En la parte inferior del esternón.', value: 'wrong2'),
             ],
           ),
         ),
@@ -266,20 +265,3 @@ class HealthKnowledgeTestScreen extends StatelessWidget {
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

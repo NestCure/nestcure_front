@@ -2,12 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:survey_kit/survey_kit.dart';
 
-class HealthKnowledgeTestScreen extends StatelessWidget {
+class IntermediateCommunicationSkillsTestScreen extends StatelessWidget {
   final String testType;
   final String testLevel;
   final VoidCallback onCompleted;
 
-  const HealthKnowledgeTestScreen({
+  const IntermediateCommunicationSkillsTestScreen({
     super.key,
     required this.testType,
     required this.testLevel,
@@ -19,7 +19,7 @@ class HealthKnowledgeTestScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.primary,
-        title: Text('Test de Coneixements Salut - $testLevel'),
+        title: Text('Test de Habilitats de Comunicació - $testLevel'),
       ),
       body: SurveyKit(
         onResult: (SurveyResult result) {
@@ -142,117 +142,117 @@ class HealthKnowledgeTestScreen extends StatelessWidget {
       id: TaskIdentifier(),
       steps: [
         InstructionStep(
-          title: 'Benvingut al Test de Coneixements de Salut Bàsic',
-          text: 'A continuació, realitzaràs una sèrie de preguntes per validar els teus coneixements.',
+          title: 'Benvingut al Test de Habilitats de Comunicació Intermedi',
+          text: 'A continuació, realitzaràs una sèrie de preguntes per validar les teves habilitats.',
           buttonText: 'Començar',
         ),
         QuestionStep(
           title: 'Pregunta 1',
-          text: 'Què és la RCP?',
+          text: 'Com podem assegurar-nos que hem entès correctament el missatge d\'algú?',
           answerFormat: const SingleChoiceAnswerFormat(
             textChoices: [
-              TextChoice(text: 'Reanimació CardioPulmonar', value: 'correct'),
-              TextChoice(text: 'Respiració Controlada Progressiva', value: 'wrong1'),
-              TextChoice(text: 'Reacción Cutánea Postural', value: 'wrong2'),
+              TextChoice(text: 'Reflectint i parafrasejant el que han dit', value: 'correct'),
+              TextChoice(text: 'Interrompent per aclarir', value: 'wrong1'),
+              TextChoice(text: 'Respondent immediatament', value: 'wrong2'),
             ],
           ),
         ),
         QuestionStep(
           title: 'Pregunta 2',
-          text: 'Quin és el símbol de l\'emergència mèdica?',
+          text: 'Què és important tenir en compte en la comunicació intercultural?',
           answerFormat: const SingleChoiceAnswerFormat(
             textChoices: [
-              TextChoice(text: 'Creu Vermella', value: 'correct'),
-              TextChoice(text: 'Estrella de David', value: 'wrong1'),
-              TextChoice(text: 'Caduceu', value: 'wrong2'),
+              TextChoice(text: 'Respectar les diferències culturals', value: 'correct'),
+              TextChoice(text: 'Parlar només en la nostra llengua', value: 'wrong1'),
+              TextChoice(text: 'Assumir que tothom entén la nostra cultura', value: 'wrong2'),
             ],
           ),
         ),
         QuestionStep(
           title: 'Pregunta 3',
-          text: 'Quin és el número d\'emergències?',
+          text: 'Com podem millorar la nostra capacitat d\'escolta activa?',
           answerFormat: const SingleChoiceAnswerFormat(
             textChoices: [
-              TextChoice(text: '112', value: 'correct'),
-              TextChoice(text: '911', value: 'wrong1'),
-              TextChoice(text: '123', value: 'wrong2'),
+              TextChoice(text: 'Donant tota la nostra atenció a l\'interlocutor', value: 'correct'),
+              TextChoice(text: 'Preparant la nostra resposta mentre escoltem', value: 'wrong1'),
+              TextChoice(text: 'Multitasca durant la conversa', value: 'wrong2'),
             ],
           ),
         ),
         QuestionStep(
           title: 'Pregunta 4',
-          text: 'Què s\'ha de fer primer en cas d\'una ferida sagnant?',
+          text: 'Com podem demostrar empatia en una conversa?',
           answerFormat: const SingleChoiceAnswerFormat(
             textChoices: [
-              TextChoice(text: 'Aplicar pressió', value: 'correct'),
-              TextChoice(text: 'Posar aigua', value: 'wrong1'),
-              TextChoice(text: 'Col·locar un apòsit', value: 'wrong2'),
+              TextChoice(text: 'Reconeguent els sentiments de l\'altre', value: 'correct'),
+              TextChoice(text: 'Parlant més de nosaltres mateixos', value: 'wrong1'),
+              TextChoice(text: 'Interrompent per donar consells', value: 'wrong2'),
             ],
           ),
         ),
         QuestionStep(
           title: 'Pregunta 5',
-          text: 'Com es pot prevenir un refredat comú?',
+          text: 'Quina és una tècnica per millorar la comunicació en un grup?',
           answerFormat: const SingleChoiceAnswerFormat(
             textChoices: [
-              TextChoice(text: 'Rentant-se les mans', value: 'correct'),
-              TextChoice(text: 'Bevent molta aigua', value: 'wrong1'),
-              TextChoice(text: 'Prenent vitamines', value: 'wrong2'),
+              TextChoice(text: 'Establir normes clares de comunicació', value: 'correct'),
+              TextChoice(text: 'Parlar tots alhora', value: 'wrong1'),
+              TextChoice(text: 'Ignorar les aportacions dels altres', value: 'wrong2'),
             ],
           ),
         ),
         QuestionStep(
           title: 'Pregunta 6',
-          text: 'Què significa AED?',
+          text: 'Què significa tenir una comunicació clara i concisa?',
           answerFormat: const SingleChoiceAnswerFormat(
             textChoices: [
-              TextChoice(text: 'Desfibril·lador Extern Automàtic', value: 'correct'),
-              TextChoice(text: 'Dispositiu Electrònic d\'Ajuda', value: 'wrong1'),
-              TextChoice(text: 'Equip de Emergències Avançades', value: 'wrong2'),
+              TextChoice(text: 'Expressar-se de manera breu i fàcil d\'entendre', value: 'correct'),
+              TextChoice(text: 'Parlar molt ràpid', value: 'wrong1'),
+              TextChoice(text: 'Utilitzar paraules complicades', value: 'wrong2'),
             ],
           ),
         ),
         QuestionStep(
           title: 'Pregunta 7',
-          text: 'Què s\'ha de fer en cas d\'una cremada menor?',
+          text: 'Com podem gestionar una conversa difícil?',
           answerFormat: const SingleChoiceAnswerFormat(
             textChoices: [
-              TextChoice(text: 'Aplicar aigua freda', value: 'correct'),
-              TextChoice(text: 'Posar oli', value: 'wrong1'),
-              TextChoice(text: 'Cobrir amb una manta', value: 'wrong2'),
+              TextChoice(text: 'Mantenint la calma i l\'objectivitat', value: 'correct'),
+              TextChoice(text: 'Elevant la veu per fer-nos entendre', value: 'wrong1'),
+              TextChoice(text: 'Evitant el tema completament', value: 'wrong2'),
             ],
           ),
         ),
         QuestionStep(
           title: 'Pregunta 8',
-          text: 'Quina és la causa més comuna d\'un atac cardíac?',
+          text: 'Com podem evitar malentesos en la comunicació escrita?',
           answerFormat: const SingleChoiceAnswerFormat(
             textChoices: [
-              TextChoice(text: 'Bloqueig de les artèries coronàries', value: 'correct'),
-              TextChoice(text: 'Febre alta', value: 'wrong1'),
-              TextChoice(text: 'Infecció bacteriana', value: 'wrong2'),
+              TextChoice(text: 'Revisant i clarificant el missatge', value: 'correct'),
+              TextChoice(text: 'Utilitzant moltes abreviatures', value: 'wrong1'),
+              TextChoice(text: 'Escrivint molt ràpid', value: 'wrong2'),
             ],
           ),
         ),
         QuestionStep(
           title: 'Pregunta 9',
-          text: 'Quin és el millor lloc per comprovar el pols en un adult conscient?',
+          text: 'Què és el feedback constructiu?',
           answerFormat: const SingleChoiceAnswerFormat(
             textChoices: [
-              TextChoice(text: 'Canell', value: 'correct'),
-              TextChoice(text: 'Coll', value: 'wrong1'),
-              TextChoice(text: 'Peu', value: 'wrong2'),
+              TextChoice(text: 'Comentaris positius i suggeriments per millorar', value: 'correct'),
+              TextChoice(text: 'Crítiques negatives sense solucions', value: 'wrong1'),
+              TextChoice(text: 'Ignorar els errors dels altres', value: 'wrong2'),
             ],
           ),
         ),
         QuestionStep(
           title: 'Pregunta 10',
-          text: 'Quina és la temperatura corporal normal en un ésser humà?',
+          text: 'Què és important per mantenir una bona relació comunicativa?',
           answerFormat: const SingleChoiceAnswerFormat(
             textChoices: [
-              TextChoice(text: '36.5-37.5 °C', value: 'correct'),
-              TextChoice(text: '35-36 °C', value: 'wrong1'),
-              TextChoice(text: '38-39 °C', value: 'wrong2'),
+              TextChoice(text: 'Respectar i valorar l\'opinió de l\'altre', value: 'correct'),
+              TextChoice(text: 'Parlar més que l\'altre', value: 'wrong1'),
+              TextChoice(text: 'Estar d\'acord en tot', value: 'wrong2'),
             ],
           ),
         ),
@@ -266,20 +266,3 @@ class HealthKnowledgeTestScreen extends StatelessWidget {
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

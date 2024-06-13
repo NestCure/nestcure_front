@@ -2,12 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:survey_kit/survey_kit.dart';
 
-class HealthKnowledgeTestScreen extends StatelessWidget {
+class AdvancedHealthKnowledgeTestScreen extends StatelessWidget {
   final String testType;
   final String testLevel;
   final VoidCallback onCompleted;
 
-  const HealthKnowledgeTestScreen({
+  const AdvancedHealthKnowledgeTestScreen({
     super.key,
     required this.testType,
     required this.testLevel,
@@ -142,117 +142,117 @@ class HealthKnowledgeTestScreen extends StatelessWidget {
       id: TaskIdentifier(),
       steps: [
         InstructionStep(
-          title: 'Benvingut al Test de Coneixements de Salut Bàsic',
+          title: 'Benvingut al Test de Coneixements de Salut Avançat',
           text: 'A continuació, realitzaràs una sèrie de preguntes per validar els teus coneixements.',
           buttonText: 'Començar',
         ),
         QuestionStep(
           title: 'Pregunta 1',
-          text: 'Què és la RCP?',
+          text: 'Què és l\'edema pulmonar?',
           answerFormat: const SingleChoiceAnswerFormat(
             textChoices: [
-              TextChoice(text: 'Reanimació CardioPulmonar', value: 'correct'),
-              TextChoice(text: 'Respiració Controlada Progressiva', value: 'wrong1'),
-              TextChoice(text: 'Reacción Cutánea Postural', value: 'wrong2'),
+              TextChoice(text: 'Acumulació de líquid als pulmons', value: 'correct'),
+              TextChoice(text: 'Infecció bacteriana dels pulmons', value: 'wrong1'),
+              TextChoice(text: 'Càncer de pulmó', value: 'wrong2'),
             ],
           ),
         ),
         QuestionStep(
           title: 'Pregunta 2',
-          text: 'Quin és el símbol de l\'emergència mèdica?',
+          text: 'Quin és el tractament inicial per a un infart agut de miocardi?',
           answerFormat: const SingleChoiceAnswerFormat(
             textChoices: [
-              TextChoice(text: 'Creu Vermella', value: 'correct'),
-              TextChoice(text: 'Estrella de David', value: 'wrong1'),
-              TextChoice(text: 'Caduceu', value: 'wrong2'),
+              TextChoice(text: 'Administrar aspirina', value: 'correct'),
+              TextChoice(text: 'Donar begudes calentes', value: 'wrong1'),
+              TextChoice(text: 'Aplicar gel', value: 'wrong2'),
             ],
           ),
         ),
         QuestionStep(
           title: 'Pregunta 3',
-          text: 'Quin és el número d\'emergències?',
+          text: 'Què és un pneumotòrax?',
           answerFormat: const SingleChoiceAnswerFormat(
             textChoices: [
-              TextChoice(text: '112', value: 'correct'),
-              TextChoice(text: '911', value: 'wrong1'),
-              TextChoice(text: '123', value: 'wrong2'),
+              TextChoice(text: 'Presència d\'aire a la cavitat pleural', value: 'correct'),
+              TextChoice(text: 'Inflamació de la pleura', value: 'wrong1'),
+              TextChoice(text: 'Infecció pulmonar greu', value: 'wrong2'),
             ],
           ),
         ),
         QuestionStep(
           title: 'Pregunta 4',
-          text: 'Què s\'ha de fer primer en cas d\'una ferida sagnant?',
+          text: 'Quin medicament es fa servir habitualment per a tractar la diabetis tipus 2?',
           answerFormat: const SingleChoiceAnswerFormat(
             textChoices: [
-              TextChoice(text: 'Aplicar pressió', value: 'correct'),
-              TextChoice(text: 'Posar aigua', value: 'wrong1'),
-              TextChoice(text: 'Col·locar un apòsit', value: 'wrong2'),
+              TextChoice(text: 'Metformina', value: 'correct'),
+              TextChoice(text: 'Insulina', value: 'wrong1'),
+              TextChoice(text: 'Amoxicil·lina', value: 'wrong2'),
             ],
           ),
         ),
         QuestionStep(
           title: 'Pregunta 5',
-          text: 'Com es pot prevenir un refredat comú?',
+          text: 'Quin és un símptoma comú de la insuficiència cardíaca congestiva?',
           answerFormat: const SingleChoiceAnswerFormat(
             textChoices: [
-              TextChoice(text: 'Rentant-se les mans', value: 'correct'),
-              TextChoice(text: 'Bevent molta aigua', value: 'wrong1'),
-              TextChoice(text: 'Prenent vitamines', value: 'wrong2'),
+              TextChoice(text: 'Dificultat per respirar', value: 'correct'),
+              TextChoice(text: 'Dolor de cap', value: 'wrong1'),
+              TextChoice(text: 'Mal de coll', value: 'wrong2'),
             ],
           ),
         ),
         QuestionStep(
           title: 'Pregunta 6',
-          text: 'Què significa AED?',
+          text: 'Què és la bradicàrdia?',
           answerFormat: const SingleChoiceAnswerFormat(
             textChoices: [
-              TextChoice(text: 'Desfibril·lador Extern Automàtic', value: 'correct'),
-              TextChoice(text: 'Dispositiu Electrònic d\'Ajuda', value: 'wrong1'),
-              TextChoice(text: 'Equip de Emergències Avançades', value: 'wrong2'),
+              TextChoice(text: 'Ritme cardíac anormalment lent', value: 'correct'),
+              TextChoice(text: 'Ritme cardíac ràpid', value: 'wrong1'),
+              TextChoice(text: 'Absència de ritme cardíac', value: 'wrong2'),
             ],
           ),
         ),
         QuestionStep(
           title: 'Pregunta 7',
-          text: 'Què s\'ha de fer en cas d\'una cremada menor?',
+          text: 'Quin és l\'objectiu principal de la teràpia amb anticoagulants?',
           answerFormat: const SingleChoiceAnswerFormat(
             textChoices: [
-              TextChoice(text: 'Aplicar aigua freda', value: 'correct'),
-              TextChoice(text: 'Posar oli', value: 'wrong1'),
-              TextChoice(text: 'Cobrir amb una manta', value: 'wrong2'),
+              TextChoice(text: 'Prevenir la formació de coàguls', value: 'correct'),
+              TextChoice(text: 'Reduir el dolor', value: 'wrong1'),
+              TextChoice(text: 'Augmentar la pressió sanguínia', value: 'wrong2'),
             ],
           ),
         ),
         QuestionStep(
           title: 'Pregunta 8',
-          text: 'Quina és la causa més comuna d\'un atac cardíac?',
+          text: 'Què és la fibril·lació auricular?',
           answerFormat: const SingleChoiceAnswerFormat(
             textChoices: [
-              TextChoice(text: 'Bloqueig de les artèries coronàries', value: 'correct'),
-              TextChoice(text: 'Febre alta', value: 'wrong1'),
-              TextChoice(text: 'Infecció bacteriana', value: 'wrong2'),
+              TextChoice(text: 'Ritme cardíac ràpid i irregular', value: 'correct'),
+              TextChoice(text: 'Ritme cardíac lent i regular', value: 'wrong1'),
+              TextChoice(text: 'Absència de ritme cardíac', value: 'wrong2'),
             ],
           ),
         ),
         QuestionStep(
           title: 'Pregunta 9',
-          text: 'Quin és el millor lloc per comprovar el pols en un adult conscient?',
+          text: 'Què és la septicèmia?',
           answerFormat: const SingleChoiceAnswerFormat(
             textChoices: [
-              TextChoice(text: 'Canell', value: 'correct'),
-              TextChoice(text: 'Coll', value: 'wrong1'),
-              TextChoice(text: 'Peu', value: 'wrong2'),
+              TextChoice(text: 'Infecció generalitzada a la sang', value: 'correct'),
+              TextChoice(text: 'Infecció localitzada a la pell', value: 'wrong1'),
+              TextChoice(text: 'Inflamació dels ganglis limfàtics', value: 'wrong2'),
             ],
           ),
         ),
         QuestionStep(
           title: 'Pregunta 10',
-          text: 'Quina és la temperatura corporal normal en un ésser humà?',
+          text: 'Quin és l\'efecte secundari més comú dels inhibidors de l\'ECA?',
           answerFormat: const SingleChoiceAnswerFormat(
             textChoices: [
-              TextChoice(text: '36.5-37.5 °C', value: 'correct'),
-              TextChoice(text: '35-36 °C', value: 'wrong1'),
-              TextChoice(text: '38-39 °C', value: 'wrong2'),
+              TextChoice(text: 'Tos seca', value: 'correct'),
+              TextChoice(text: 'Nàusees', value: 'wrong1'),
+              TextChoice(text: 'Marejos', value: 'wrong2'),
             ],
           ),
         ),
@@ -266,20 +266,5 @@ class HealthKnowledgeTestScreen extends StatelessWidget {
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
