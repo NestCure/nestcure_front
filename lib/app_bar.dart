@@ -1,11 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:nestcure/llistat_activitats.dart';
 import 'package:nestcure/main.dart';
 import 'package:nestcure/profile.dart';
+import 'package:nestcure/validate_certificate.dart';
+import 'package:nestcure/list_certificates.dart';
 import 'knowledge_tests.dart'; // Importa el archivo de los tests de conocimientos
 
-AppBar customAppBar(BuildContext context) {
+AppBar customAppBar(BuildContext context, bool canReturnBack) {
   return AppBar(
-    backgroundColor: Theme.of(context).colorScheme.primary,
+    backgroundColor: const Color.fromARGB(255, 255, 251, 245),
+    leading: canReturnBack
+        ? IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          )
+        : null,
     title: SizedBox(
       height: AppBar().preferredSize.height,
       child: Image.asset(
@@ -26,7 +37,7 @@ AppBar customAppBar(BuildContext context) {
             Navigator.of(context).pushReplacement(
               MaterialPageRoute(
                 builder: (context) {
-                  return const ProfileWidget();
+                  return ProfileWidget();
                 },
               ),
             );
@@ -68,7 +79,7 @@ class NavigationDrawerWidget extends StatelessWidget {
               Navigator.of(context).pushReplacement(
                 MaterialPageRoute(
                   builder: (context) {
-                    return const MyHomePage(title: 'Home');
+                    return const MyHomePage();
                   },
                 ),
               );
@@ -82,7 +93,59 @@ class NavigationDrawerWidget extends StatelessWidget {
 
               Navigator.of(context).push(
                 MaterialPageRoute(builder: (context) {
-                  return const ProfileWidget();
+                  return ProfileWidget();
+                }),
+              );
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.content_paste_search),
+            title: const Text('Les Meves activitats'),
+            onTap: () {
+              Navigator.pop(context);
+
+              Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) {
+                  return const LlistaActivitats();
+                }),
+              );
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.upload_file),
+            title: const Text('Valida Certificat'),
+            onTap: () {
+              Navigator.pop(context);
+
+              Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) {
+                  return const ValidateCertificate();
+                }),
+              );
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.list),
+            title: const Text('Els Meus Certificats'),
+            onTap: () {
+              Navigator.pop(context);
+
+              Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) {
+                  return const ListCertificates();
+                }),
+              );
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.quiz),
+            title: const Text('Knowledge Tests'),
+            onTap: () {
+              Navigator.pop(context);
+
+              Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) {
+                  return const KnowledgeTestsScreen();
                 }),
               );
             },

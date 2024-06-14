@@ -1,5 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:nestcure/persona_dependent.dart';
+import 'package:provider/provider.dart';
 import 'package:nestcure/app_bar.dart';
+import 'package:nestcure/login.dart';
+import 'package:nestcure/user_provider.dart';
+import 'package:nestcure/certificate_provider.dart';
+import 'package:nestcure/validate_certificate.dart';
+import 'package:nestcure/list_certificates.dart';
 import 'knowledge_tests.dart';
 
 void main() {
@@ -11,70 +18,186 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'NestCure',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color.fromARGB(255, 255, 251, 245),
-          background: const Color.fromARGB(255, 255, 251, 245),
-          primary: const Color.fromARGB(255, 255, 251, 245),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (_) => CertificateProvider(),
         ),
-        useMaterial3: true,
+        ChangeNotifierProvider(
+          create: (_) => UserProvider(),
+        ),
+      ],
+      child: MaterialApp(
+        title: 'NestCure',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(
+            seedColor: const Color.fromRGBO(45, 88, 133, 1),
+            background: const Color.fromARGB(255, 255, 251, 245),
+            surface: const Color.fromARGB(255, 255, 251, 245),
+          ),
+          textTheme: const TextTheme(
+              bodyLarge: TextStyle(fontSize: 17),
+              titleMedium:
+                  TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+          useMaterial3: true,
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+        ),
+        home: LoginPage(),
+        routes: {
+          '/validate': (context) => const ValidateCertificate(),
+          '/list': (context) => const PersonesDependentsWidget(),
+          '/list_certificates': (context) => const ListCertificates(),
+          //'/list_certificates_provided': (context) => CertificateProvider(),
+          '/knowledge_tests': (context) => const KnowledgeTestsScreen(),
+        },
       ),
-      initialRoute: '/',
-      routes: {
-        '/': (context) => const MyHomePage(title: 'Home'),
-        '/perfil': (context) => const PerfilPage(), 
-        '/knowledge_tests': (context) => const KnowledgeTestsScreen(),
-      },
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
+  const MyHomePage({super.key});
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.primary,
-        title: Text(widget.title),
-      ),
+      appBar: customAppBar(context, false),
       drawer: const NavigationDrawerWidget(),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/list');
+                },
+                style: ElevatedButton.styleFrom(
+                  padding: EdgeInsets.symmetric(vertical: 20, horizontal: 24),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  backgroundColor: Colors.lightBlue.shade200,
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    Icon(Icons.people),
+                    SizedBox(width: 8),
+                    Text('Persones cuidades'),
+                  ],
+                ),
+              ),
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+          ),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/validate');
+                },
+                style: ElevatedButton.styleFrom(
+                  padding: EdgeInsets.symmetric(vertical: 20, horizontal: 24),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  backgroundColor: Colors.lightBlue.shade200,
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    Icon(Icons.checklist),
+                    SizedBox(width: 8),
+                    Text('Valida Certificats'),
+                  ],
+                ),
+              ),
             ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+          ),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/list_certificates');
+                },
+                style: ElevatedButton.styleFrom(
+                  padding: EdgeInsets.symmetric(vertical: 20, horizontal: 24),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  backgroundColor: Colors.lightBlue.shade200,
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    Icon(Icons.book),
+                    SizedBox(width: 8),
+                    Text('Els meus certificats'),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ElevatedButton(
+                onPressed: () {
+                  // Aquí maneja la navegación para validar la experiencia
+                },
+                style: ElevatedButton.styleFrom(
+                  padding: EdgeInsets.symmetric(vertical: 20, horizontal: 24),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  backgroundColor: Colors.lightGreen.shade200,
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    Icon(Icons.how_to_reg),
+                    SizedBox(width: 8),
+                    Text('Valida la teva experiencia'),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ElevatedButton(
+                onPressed: () {
+                  // Aquí maneja la navegación para registrar lo que has hecho
+                },
+                style: ElevatedButton.styleFrom(
+                  padding: EdgeInsets.symmetric(vertical: 20, horizontal: 24),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  backgroundColor: Colors.lightGreen.shade200,
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    Icon(Icons.refresh_outlined),
+                    Icon(Icons.calendar_month),
+                    SizedBox(width: 8),
+                    Text('Registra el que has fet'),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
